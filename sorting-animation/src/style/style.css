@@ -1,0 +1,33 @@
+body{
+    width: 100%;
+    height: 100vh ;
+    background-color: #EA2027;
+    background-image: linear-gradient(316deg, #e91d02 0%, #ffbe0b 74%);
+
+}
+.container{
+    height: 100vh;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.center{
+    padding-top:20px;
+    align-self: center; 
+}
+.center button{
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #272727;
+    border:0px;
+    color:#FFFFFF;
+}
+.sortContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: end;
+}
+.sortItem{
+    width: 20px;
+    margin: 0 2px;
+}
