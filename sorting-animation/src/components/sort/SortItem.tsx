@@ -2,12 +2,15 @@ import React from 'react'
 type Props={
     value:number;
     isSorting:boolean;
+    isFinished:boolean;
 }
-function SortItem({value,isSorting}:Props) {
+
+const  SortItem =  ({value,isSorting,isFinished}:Props) =>{
+  console.log("rerendering!!!"+ value )
   return (
-    <div className='sortItem' style={{height:`${value.toString()+"px"}`, backgroundColor:`${isSorting?"#b25133":"#F2A65A"}`}}>
-        
-    </div>
+    <div className='sortItem' 
+      style={{height:`${value.toString()+"px"}`,
+              backgroundColor:`${isFinished?"#040404":(isSorting?"red":"#FEFEFE")}`}}></div>
   )
 }
 
