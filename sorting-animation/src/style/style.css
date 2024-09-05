@@ -44,8 +44,8 @@ body{
     width: 20px;
     margin: 0 2px;
     transition-property: height;
-    transition-duration: 1s;
-    transition-timing-function: ease;
+    transition-duration: .5s;
+    transition-timing-function:   ease-out;
 }
 svg{
     color:#FEFEFE;

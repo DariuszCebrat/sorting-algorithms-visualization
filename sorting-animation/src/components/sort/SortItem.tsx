@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
 type Props={
     value:number;
-    isSorting:boolean;
+    isComparing:boolean;
     isFinished:boolean;
 }
 
-const  SortItem =  ({value,isSorting,isFinished}:Props) =>{
-  console.log("rerendering!!!"+ value )
+const  SortItem =  ({value,isComparing,isFinished}:Props) =>{
   return (
     <div className='sortItem' 
       style={{height:`${value.toString()+"px"}`,
-              backgroundColor:`${isFinished?"#040404":(isSorting?"red":"#FEFEFE")}`}}></div>
+              backgroundColor:`${isFinished?"#040404":(isComparing?"green":"white")}`}}></div>
   )
 }
 
-export default SortItem
+export default memo(SortItem)

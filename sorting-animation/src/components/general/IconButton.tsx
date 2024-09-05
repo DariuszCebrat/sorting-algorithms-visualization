@@ -4,12 +4,12 @@ import React, { ComponentPropsWithoutRef } from 'react'
 type Props={
     text:string;
     icon:IconDefinition  ;
+    disabled?:boolean;
 }&ComponentPropsWithoutRef<'button'>;
-function IconButton({text,icon,...props}:Props) {
-  console.log("button render")
+function IconButton({text,icon,disabled,...props}:Props) {
   return (
     <div className='center'>
-        <button {...props} ><FontAwesomeIcon icon={icon} /> {text}</button>
+        <button disabled={disabled} {...props} ><FontAwesomeIcon icon={icon} /> {text}</button>
     </div>
   )
 }

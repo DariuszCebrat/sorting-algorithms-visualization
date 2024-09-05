@@ -1,10 +1,11 @@
+export const arrayLength=20;
 export interface SortItem {
     id:string;
     value:number;
-    isSorting:boolean;
+    isComparing:boolean;
 }
 export type DataForAnimation = {
-    left:string,
-    right:string,
-    toLeft:boolean
+    left: string; 
+    right: string;
+    changePlaces:boolean;
 };
