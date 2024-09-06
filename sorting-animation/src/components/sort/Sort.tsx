@@ -10,7 +10,7 @@ function Sort() {
         dispatch(createNewArray(arrayLength))
       },[dispatch])
     const {items} = useSortArraySelector((state)=>state.sortArray);
-
+      console.log(items);
   return (
     <SortContainer items={items}/>
   )

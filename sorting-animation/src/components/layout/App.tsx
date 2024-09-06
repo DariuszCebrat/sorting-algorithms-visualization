@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../general/Container';
 import IconButton from '../general/IconButton';
 import { faUpRightAndDownLeftFromCenter,faRefresh } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,7 @@ function App() {
           <IconButton text='' icon={faRefresh} onClick={()=>dispatch(createNewArray(arrayLength)) } disabled={!isFinished}/>
           <Sort/>
         </div>
-        <IconButton text='Sort' icon={faUpRightAndDownLeftFromCenter} onClick={()=>dispatch( startMergeSort(1000)) } disabled={!isFinished} />
+        <IconButton text='Sort' icon={faUpRightAndDownLeftFromCenter} onClick={()=>dispatch( startMergeSort(2000)) } disabled={!isFinished} />
       </Container>
     </main>
   );

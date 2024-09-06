@@ -6,33 +6,26 @@ type Props = {
     items:SortItemType[];
 }
 function SortContainer({items}:Props) {
-    const {animationData,isFinished} = useSortArraySelector((state)=>state.sortArray);
+    const {animationData,isFinished,movedData} = useSortArraySelector((state)=>state.sortArray);
     const [itemsUI ,setItemsUI] = useState<SortItemType[]>(items);
    useEffect(()=>{
     setItemsUI(items)
    },[items])
-    useEffect(()=>{
-        if(animationData.left && animationData.right ){
-         
-                setItemsUI((old)=>{
-                    const prev = [...old];
-                    if(animationData.changePlaces)
-                    {
-                        const leftIndex = prev.findIndex(x=>x.id===animationData.left);
-                        const rightIndex = prev.findIndex(x=>x.id===animationData.right);
-                        
-                        var newRight={value:prev[leftIndex].value,isComparing:prev[leftIndex].isComparing,id:prev[rightIndex].id};
-                        var newLeft={value:prev[rightIndex].value,isComparing:prev[rightIndex].isComparing,id:prev[leftIndex].id};
-                        prev[leftIndex] = newLeft;
-                        prev[rightIndex] = newRight;
-                    }
-                    
-                    return [...prev];
-                })
-        }
-       
-    },[animationData,items])
-
+   useEffect(()=>{
+    if(movedData.right && movedData.left && movedData.newLeftValue!==0 && movedData.newRightValue!==0)
+    {
+        setItemsUI((prev)=>{
+            const items = [...prev];
+            if(movedData.newLeftValue<movedData.newRightValue){
+                const leftIndex = items.findIndex(x=>x.id === movedData.left);
+                const rightIndex = items.findIndex(x=>x.id === movedData.right);
+                items[leftIndex]={id:items[leftIndex].id,value:movedData.newLeftValue}
+                items[rightIndex]={id:items[rightIndex].id,value:movedData.newRightValue}
+            }
+            return [...items];
+        })
+    }
+   },[movedData]) 
   return (
       <div id='sortContainer' className='sortContainer'>
           {
