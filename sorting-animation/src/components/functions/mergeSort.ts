@@ -7,7 +7,7 @@ import {
   setSortedItems,
   startSorting,
 } from "../../store/sortArray-slice";
-////  
+
 
 async function mergeSort(dispatch:AppDispatch, arr: SortItem[], delay:number): Promise<SortItem[]> {
     if (arr.length <= 1) {
@@ -45,7 +45,6 @@ async function merge(left: SortItem[], right: SortItem[], dispatch: AppDispatch,
 
     }
 
-    // Remaining elements from left array
     while (i < left.length) {
         const tempItem = result[result.length-1];
         result.push(left[i]);
@@ -55,7 +54,6 @@ async function merge(left: SortItem[], right: SortItem[], dispatch: AppDispatch,
 
     }
 
-    // Remaining elements from right array
     while (j < right.length) {
 
         const tempItem = result[result.length-1];

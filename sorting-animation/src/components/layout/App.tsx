@@ -14,10 +14,10 @@ function App() {
     <main>
       <Container>
         <div className='containerMain'>
-          <IconButton text='' icon={faRefresh} onClick={()=>dispatch(createNewArray(arrayLength)) } disabled={!isFinished}/>
+          <IconButton id="refresh" text='' icon={faRefresh} onClick={()=>dispatch(createNewArray(arrayLength)) } disabled={!isFinished}/>
           <Sort/>
         </div>
-        <IconButton text='Sort' icon={faUpRightAndDownLeftFromCenter} onClick={()=>dispatch( startMergeSort(2000)) } disabled={!isFinished} />
+        <IconButton text='Sort' icon={faUpRightAndDownLeftFromCenter} onClick={()=>dispatch( startMergeSort(1000)) } disabled={!isFinished} />
       </Container>
     </main>
   );
