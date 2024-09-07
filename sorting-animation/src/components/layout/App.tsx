@@ -4,7 +4,7 @@ import IconButton from '../general/IconButton';
 import { faUpRightAndDownLeftFromCenter,faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { useSortArrayDispatch, useSortArraySelector } from '../../hooks/sortHooks';
 import { createNewArray } from '../../store/sortArray-slice';
-import { startMergeSort } from '../functions/mergeSort';
+import { startMergeSort } from '../../functions/mergeSort';
 import Sort from '../sort/Sort';
 import { arrayLength } from '../../models/Sort';
 function App() {

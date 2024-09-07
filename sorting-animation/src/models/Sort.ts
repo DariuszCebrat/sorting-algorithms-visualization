@@ -11,6 +11,4 @@ export type DataForAnimation = {
 export type MovedData={
     left:string;
     right:string;
-    newLeftValue:number;
-    newRightValue:number;
 }

@@ -12,7 +12,7 @@ const initialState:sortArrayState = {
     items:[],
     isFinished:true,
     animationData: { left: "", right: "" },
-    movedData:{right:"",left:"",newLeftValue:0,newRightValue:0}
+    movedData:{right:"",left:""}
 }
 export const sortArraySlice = createSlice({
     name:"sortArray",
@@ -40,7 +40,7 @@ export const sortArraySlice = createSlice({
         startSorting(state){
             state.isFinished=false;
         },
-        setMovedData(state,action:PayloadAction<{left:string,right:string,newLeftValue:number,newRightValue:number}>)
+        setMovedData(state,action:PayloadAction<{left:string,right:string}>)
         {
             state.movedData = action.payload;
         }

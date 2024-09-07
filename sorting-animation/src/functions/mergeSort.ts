@@ -1,12 +1,12 @@
-import { AppDispatch, RootState } from "../../store/store";
-import { SortItem } from "../../models/Sort";
+import { AppDispatch, RootState } from "../store/store";
+import { SortItem } from "../models/Sort";
 import {
   finishSorting,
   setComparing,
   setMovedData,
   setSortedItems,
   startSorting,
-} from "../../store/sortArray-slice";
+} from "../store/sortArray-slice";
 
 
 async function mergeSort(dispatch:AppDispatch, arr: SortItem[], delay:number): Promise<SortItem[]> {
@@ -31,7 +31,7 @@ async function merge(left: SortItem[], right: SortItem[], dispatch: AppDispatch,
         const changePlaces = !(left[i].value <= right[j].value);
         if(changePlaces)
         {
-            dispatch(setMovedData({right:right[j].id, left:left[i].id,newLeftValue:right[j].value,newRightValue:left[i].value}))
+            dispatch(setMovedData({right:right[j].id, left:left[i].id}))
             await new Promise((resolve) => setTimeout(resolve, delay)); 
         }
         if (left[i].value <= right[j].value) {
@@ -41,9 +41,6 @@ async function merge(left: SortItem[], right: SortItem[], dispatch: AppDispatch,
             result.push(right[j]);
             j++;
         }
- 
-
-
     }
 
     while (i < left.length) {

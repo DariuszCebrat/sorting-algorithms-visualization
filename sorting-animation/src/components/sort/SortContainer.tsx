@@ -12,7 +12,7 @@ function SortContainer({items}:Props) {
     setItemsUI(items)
    },[items])
    useEffect(()=>{
-    if(movedData.right && movedData.left && movedData.newLeftValue!==0 && movedData.newRightValue!==0)
+    if(movedData.right && movedData.left)
     {
         setItemsUI((prev)=>{
             const items = [...prev];
@@ -20,7 +20,7 @@ function SortContainer({items}:Props) {
                 const leftIndex = items.findIndex(x=>x.id === movedData.left);
                 const rightIndex = items.findIndex(x=>x.id === movedData.right);
                 const tempValue = items[leftIndex].value;
-                if( items[leftIndex].value>items[rightIndex].value){
+                if( items[leftIndex].value>=items[rightIndex].value){
                     items[leftIndex]={id:items[leftIndex].id,value:items[rightIndex].value}
                     items[rightIndex]={id:items[rightIndex].id,value:tempValue}
                 }
