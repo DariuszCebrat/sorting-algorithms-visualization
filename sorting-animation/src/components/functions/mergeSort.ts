@@ -28,38 +28,33 @@ async function merge(left: SortItem[], right: SortItem[], dispatch: AppDispatch,
     while (i < left.length && j < right.length) {
         dispatch(setComparing({left:left[i].id, right:right[j].id}));
         await new Promise((resolve) => setTimeout(resolve, delay)); 
-        let tempItem:SortItem;
         const changePlaces = !(left[i].value <= right[j].value);
+        if(changePlaces)
+        {
+            dispatch(setMovedData({right:right[j].id, left:left[i].id,newLeftValue:right[j].value,newRightValue:left[i].value}))
+            await new Promise((resolve) => setTimeout(resolve, delay)); 
+        }
         if (left[i].value <= right[j].value) {
-            tempItem = right[j];
             result.push(left[i]);
             i++;
         } else {
-            tempItem = left[i];
             result.push(right[j]);
             j++;
         }
-         if(result.length>0 && changePlaces)
-             dispatch(setMovedData({right:result[result.length-1].id, left:tempItem.id,newLeftValue:result[result.length-1].value,newRightValue:tempItem.value}))
-         await new Promise((resolve) => setTimeout(resolve, delay)); 
+ 
+
 
     }
 
     while (i < left.length) {
-        const tempItem = result[result.length-1];
         result.push(left[i]);
-       dispatch(setMovedData({right:result[result.length-1].id, left:tempItem.id,newLeftValue:result[result.length-1].value,newRightValue:tempItem.value}))
-        await new Promise((resolve) => setTimeout(resolve, delay)); 
         i++;
 
     }
 
     while (j < right.length) {
 
-        const tempItem = result[result.length-1];
         result.push(right[j]);
-        dispatch(setMovedData({right:result[result.length-1].id, left:tempItem.id,newLeftValue:result[result.length-1].value,newRightValue:tempItem.value}))
-        await new Promise((resolve) => setTimeout(resolve, delay)); 
         j++;
 
     }

@@ -16,12 +16,15 @@ function SortContainer({items}:Props) {
     {
         setItemsUI((prev)=>{
             const items = [...prev];
-            if(movedData.newLeftValue<movedData.newRightValue){
+
                 const leftIndex = items.findIndex(x=>x.id === movedData.left);
                 const rightIndex = items.findIndex(x=>x.id === movedData.right);
-                items[leftIndex]={id:items[leftIndex].id,value:movedData.newLeftValue}
-                items[rightIndex]={id:items[rightIndex].id,value:movedData.newRightValue}
-            }
+                const tempValue = items[leftIndex].value;
+                if( items[leftIndex].value>items[rightIndex].value){
+                    items[leftIndex]={id:items[leftIndex].id,value:items[rightIndex].value}
+                    items[rightIndex]={id:items[rightIndex].id,value:tempValue}
+                }
+            
             return [...items];
         })
     }
