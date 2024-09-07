@@ -39,4 +39,4 @@ function SortContainer({items}:Props) {
   )
 }
 
-export default SortContainer
+export default memo(SortContainer)
